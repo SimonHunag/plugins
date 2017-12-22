@@ -1,0 +1,59 @@
+<idea-plugin>
+  <id>la.kaike.intellij.plugin.kreview</id>
+  <name>KCode Review</name>
+  <version>1.0</version>
+  <vendor email="huanghuapeng@kaike.la" url="http://www.estudy.cn">杭州开课啦教育科技有限公司</vendor>
+
+  <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="145.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <applicationConfigurable instance="la.kaike.intellij.plugin.kreview.configurable.ConectionConfigurable"/>
+    <applicationService serviceInterface="la.kaike.intellij.plugin.kreview.setting.ConnectionSetting"
+                        serviceImplementation="la.kaike.intellij.plugin.kreview.setting.ConnectionSetting"/>
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="la.kaike.intellij.plugin.kreview.action" class="la.kaike.intellij.plugin.kreview.action.KReviewAction" popup="true"
+            text="KCode Review" description="kaikela code review">
+      <add-to-group group-id="GenerateGroup" anchor="last"/>
+      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+    </action>
+
+
+    <!--<action class="com.alibaba.p3c.idea.action.ToggleProjectInspectionAction" id="ToggleProjectInspectionAction"-->
+            <!--popup="true" text="关闭检测" icon="P3cIcons.PROJECT_INSPECTION_OFF">-->
+      <!--<add-to-group group-id="MainToolBar" anchor="last"/>-->
+      <!--<add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>-->
+      <!--<add-to-group group-id="ChangesViewPopupMenu" anchor="last"/>-->
+      <!--<add-to-group group-id="EditorPopupMenu" anchor="last"/>-->
+    <!--</action>-->
+
+    <action id="la.kaike.intellij.plugin.kreview.action.CommentAddAction"
+            class="la.kaike.intellij.plugin.kreview.action.CommentAddAction" text="Comment Add Action" popup="true"
+            description="Comment Add Action">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+    </action>
+  </actions>
+
+
+</idea-plugin>
